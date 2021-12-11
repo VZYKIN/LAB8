@@ -1,6 +1,22 @@
-def  kbig(item):
-   return item[1]
+def kbig(nums, a):
+    if a==1:
+        return max(nums)
+    b = nums[0]
+    c = max(nums)
+    nums.remove(c)
 
-unordered = [('b', 'b'), ('c', 'd'), ('d', 'a'), ('a', 'c')]
-unordered.sort(key=keyFunc, reverse = True)
-print('Ordered list:', unordered)
+    for i in range(0, len(nums)):
+
+        for j in range(0, len(nums)):
+
+            if abs(c - nums[j]) < b:
+                b = abs(c - nums[j])
+                d = nums[j]
+
+        b=nums[0]
+
+        c = d
+        nums.remove(c)
+
+        if i+2 == a:
+            return c
